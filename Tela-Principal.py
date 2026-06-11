@@ -1,11 +1,13 @@
 import tkinter as tk
 import random as rr
 from tkinter import messagebox
-'''aqui colocar a parte funções'''
+'''aqui colocar a parte personagem'''
 class Pessoa():
     def __init__(self,nome):
         self.nome=nome
-        self.idade=0
+        self.periodo=0
+    def avdperiodo(self):
+        self.periodo += 1
 class Dsexo(Pessoa):
    listas = ['masculino','feminino']
    sexo = rr.choice(listas)
@@ -14,12 +16,21 @@ class Riqueza(Pessoa):
     csocial = rr.choice(li)
 class Edu(Pessoa):
     pass  
-class Prof(Pessoa):
+class Curso(Pessoa):
     pass 
 class saude(Pessoa):
     pass
+''''Aqui colocar os eventos'''
+class evetos():
+    pass
 
-class PriEscolha():
+
+
+
+
+
+'''Colocar os recursos de escolha de evento'''
+class Escolha1(Pessoa):
     opcao=[]
     messagebox.showinfo('Escolha',f'Você escolheu:{opcao}')
     def criar_interface():
