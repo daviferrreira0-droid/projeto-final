@@ -68,10 +68,10 @@ class Tela_Principal(tk.Tk):
         super().__init__()
 
         self.tela= tk.Label(text='Menu')
-        self.tela.grid(row=2,column=1)
+        self.tela.pack(anchor="w")
 
         self.but1=tk.Button(text='iniciar jogo')
-        self.but1.grid(row=2,column=2)
+        self.but1.pack(anchor="w")
 
 
 pri= Tela_Principal()
