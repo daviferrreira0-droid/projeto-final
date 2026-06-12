@@ -21,9 +21,19 @@ class Curso(Pessoa):
 class saude(Pessoa):
     pass
 ''''Aqui colocar os eventos'''
-class evetos():
-    pass
+class evetos(tk.Tk):
+    ev-1= tk.Label(text="É seu primeiro dia, você está muito animado(a) que finalmente chegou sua primeira visão é um grupo de alunos.Oque você faz")
+    opcoes = [
+        "Sair correndo",
+        "Ignorar e só entra",
+        "Tenta puxar assunto aleatorio",
+        "Tentar chamar atenção desfilando"
+    ]
 
+    for opcao in opcoes:
+        botao = tk.Button( text=opcao, width=25, height=2,
+                          command=lambda o=opcao: resposta(o))
+        botao.pack(pady=5)
 
 
 
