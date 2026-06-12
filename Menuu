@@ -1,0 +1,17 @@
+import tkinter as tk
+
+
+class Tela_Principal(tk.Tk):
+    def __init__(self):
+        super().__init__()
+
+        self.tela= tk.Label(text='Menu')
+        self.tela.pack(anchor="w")
+
+        self.but1=tk.Button(text='iniciar jogo')
+        self.but1.pack(anchor="w")
+
+
+pri= Tela_Principal()
+pri.geometry("700x500")
+pri.mainloop
