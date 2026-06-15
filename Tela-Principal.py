@@ -21,61 +21,56 @@ class Curso(Pessoa):
 class saude(Pessoa):
     pass
 ''''Aqui colocar os eventos'''
-class GerenciadorEventos(tk.TK):
+class DepositoEventos():
     def __init__(self):
-        super().__init__():
         self.eventos = {
-            "pool1": [
-                {
-                    "texto": "É seu primeiro dia de aula.",
-                    "opcoes": [
-                        "Sair correndo",
-                        "Entrar normalmente",
-                        "Puxar conversa",
-                        "Desfilar"
-                    ]
-                }
-            ],
+        "Periodo1": [
+            {
+                "texto":"É seu primeiro dia de aula. Um grupo de alunos conversa perto da entrada."
+                "opçao":[
+                    "Apresentar-se ao grupo",
+                    "Entrar sozinho",
+                    "Fazer uma piada",
+                    "Esperar alguém falar com você"
+                ]
+            },
+            {
+                "texto": "Durante o intervalo, alguns colegas convidam você para sentar com eles.",
+                "opçao":[ 
+                    "Aceitar o convite",
+                    "Recusar educadamente",
+                    "Sentar e ficar em silêncio",
+                    "Tentar liderar a conversa"]
+            }
+        ],
+        "Periodo2": [...],
+        "Periodo3": [...],
+        "Periodo4": [...],
+        "Periodo5": [...],
+        "Periodo6": [...],
+        "Periodo7": [...],
+        "Periodo8": [...]
+}
 
-            "pool2": [
-                {
-                    "texto": "O professor anuncia uma prova surpresa.",
-                    "opcoes": [
-                        "Estudar",
-                        "Colar",
-                        "Fingir doença",
-                        "Aceitar o destino"
-                    ]
-                }
-            ]
-        }
-
-    def obter_evento(self, pool):
-        return rr.choice(self.eventos[pool])
-    for opcao in opcoes:
-        botao = tk.Button(
-            self,
-            text=opcao,
-            width=30,
-            command=lambda o=opcao: self.resposta(o)
-        )
-        botao.pack(pady=5)
-    def mostrar_evento(id_evento):
-        evento = eventos[id_evento]
-        pergunta.config(text=evento["texto"])
-
-        for i, botao in enumerate(botao):
-            botao.config(text=evento["opcoes"][i])
+  
 
 
 
 '''Colocar os recursos de escolha de evento'''
-class Escolha1(Pessoa):
-    opcao=[]
-    messagebox.showinfo('Escolha',f'Você escolheu:{opcao}')
-    def criar_interface():
-        janela = tk.Tk()
-        janela.title("Ano 0")
+class GerenciarEventos(DepositoEventos):
+   def __init__(self):
+        super().__init__()
+        self.evento = rr.choice(self.eventos["Periodo1"])
+
+    def mostrar_evento(evento):
+
+        self.label_texto.config(text=evento["texto"])
+
+        for i in range(4):
+            botoes[i].config(
+                text=evento["opcoes"][i]
+            )
+       
 
 
 
@@ -93,17 +88,47 @@ class Escolha1(Pessoa):
 
 
 '''Aqui colocar a interface grafica'''
-class Tela_Principal(tk.Tk):
+class Menu(tk.Frame):
+    def __init__(self, master):
+        super().__init__(master)
+
+        tk.Label(self, text="Menu").pack(pady=20)
+
+        tk.Button(
+            self,
+            text="Iniciar",
+            command=lambda: master.mostrar_tela("Ev")
+        ).pack()
+
+class Ev(tk.Frame):
+    def __init__(self, master):
+        super().__init__(master)
+
+        tk.Label(self, text="Tela 2").pack(pady=20)
+
+        tk.Button(
+            self,
+            text="Voltar",
+            command=lambda: master.mostrar_tela("Menu")
+        ).pack()
+
+class Jogo(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.tela= tk.Label(text='Menu')
-        self.tela.pack(anchor="w")
+        self.telas = {
+            "tela1": Menu(self),
+            "tela2": Ev(self)
+        }
 
-        self.but1=tk.Button(text='iniciar jogo')
-        self.but1.pack(anchor="w")
+        self.mostrar_tela("tela1")
 
+    def mostrar_tela(self, nome):
 
-pri= Tela_Principal()
-pri.geometry("700x500")
-pri.mainloop
+        for tela in self.telas.values():
+            tela.pack_forget()
+
+        self.telas[nome].pack(fill="both", expand=True)
+
+app = Jogo()
+app.mainloop()
