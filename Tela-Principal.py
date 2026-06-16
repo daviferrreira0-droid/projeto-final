@@ -36,7 +36,17 @@ class DepositoEventos:
                     ]
                 }
             ],
-            "Periodo2": [...],
+            "Periodo2": [
+                {
+                    "texto":"Você puxou uma materia com um professor horrivel",
+                    "opcoes":[
+                        "Estudar como nunca",
+                        "Ver a primeira aula e decediu trancar",
+                        "Continua mesmo sabendo que vai reprovar"
+                        "pagar alguem para te encinar por fora"
+                    ]
+                }
+            ],
             "Periodo3": [...],
         }
 
@@ -56,7 +66,7 @@ class GerenciarEventos(DepositoEventos):
 class Menu(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
-        tk.Label(self, text="🎓 Jogo da Faculdade", font=("Arial", 18, "bold")).pack(pady=30)
+        tk.Label(self, text="🎓 Jogo da Faculdade", font=("Arial", 20, "bold")).pack(pady=30)
         tk.Button(
             self, text="Iniciar",
             command=lambda: master.mostrar_tela("jogo")
