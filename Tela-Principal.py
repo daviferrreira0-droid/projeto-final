@@ -9,14 +9,13 @@ class Pessoa:
     def __init__(self, nome, sexo, classe_social):
         self.nome          = nome
         self.sexo          = sexo
-        self.classe_social = classe_social   # BUG 1: era sorteado aqui; agora vem da tela de criação
+        self.classe_social = classe_social  
         self.periodo       = 1
-        # BUG 2: atributos estavam em Ponto(herdava Pessoa) mas Ponto.__init__ não passava
-        #        nome/sexo pro super(). Unificado tudo em Pessoa para simplificar.
+       
         self.saude    = rr.randint(1, 10)
-        self.educacao = rr.randint(1, 10)   # BUG 3: era rr.radint (typo)
+        self.educacao = rr.randint(1, 10)   
         self.carisma  = rr.randint(1, 10)
-        self.stresse  = 0                   # BUG 4: código misturava "estresse"/"stresse"/"stress"; padronizado "stresse"
+        self.stresse  = 0                   
 
     def avancar_periodo(self):
         self.periodo += 1
@@ -54,7 +53,7 @@ class DepositoEventos:
                         {"texto": "Ignorar e entrar sozinho",
                          "efeitos": {"carisma": -1, "stresse": +1}},
                         {"texto": "Fazer uma piada",
-                         "efeitos": {"carisma": +1, "stresse": -1}},   # BUG 5: era "stress" (sem 'e')
+                         "efeitos": {"carisma": +1, "stresse": -1}},   
                         {"texto": "Esperar alguém falar com você",
                          "efeitos": {"stresse": +2}},
                     ]
@@ -75,6 +74,29 @@ class DepositoEventos:
                          "efeitos": {"carisma": +3, "stresse": +2}},
                     ]
                 },
+                {
+        "texto": (
+            "Você encontra um veterano nos corredores."
+        ),
+        "opcoes": [
+            {
+                "texto": "Pedir dicas sobre a faculdade",
+                "efeitos": {"carisma": +1, "inteligencia": +1}
+            },
+            {
+                "texto": "Conversar sobre o curso",
+                "efeitos": {"carisma": +2}
+            },
+            {
+                "texto": "Apenas cumprimentar",
+                "efeitos": {"carisma": +1}
+            },
+            {
+                "texto": "Ignorar e seguir andando",
+                "efeitos": {"carisma": -1}
+            },
+        ]
+    },
             ],
             "Periodo2": [
                 {
@@ -103,6 +125,29 @@ class DepositoEventos:
                          "efeitos": {"stresse": -2, "carisma": -2}},
                     ]
                 },
+                 {
+        "texto": (
+            "Há uma festa universitária acontecendo hoje à noite."
+        ),
+        "opcoes": [
+            {
+                "texto": "Ir à festa e conhecer pessoas",
+                "efeitos": {"carisma": +2, "esaude": -3}
+            },
+            {
+                "texto": "Ir apenas por algumas horas",
+                "efeitos": {"carisma": +1}
+            },
+            {
+                "texto": "Ficar em casa estudando",
+                "efeitos": {"inteligencia": +2, "stresse": +1}
+            },
+            {
+                "texto": "Ignorar o convite",
+                "efeitos": {"carisma": -1}
+            },
+        ]
+    },
             ],
             "Periodo3": [
                 {
@@ -121,13 +166,153 @@ class DepositoEventos:
                          "efeitos": {"carisma": -2, "stresse": -1}},
                     ]
                 },
+                 {
+        "texto": (
+            "Seu grupo ainda não começou o trabalho e o prazo está perto."
+        ),
+        "opcoes": [
+            {
+                "texto": "Assumir a liderança",
+                "efeitos": {"carisma": +2, "stresse": +1}
+            },
+            {
+                "texto": "Organizar uma reunião",
+                "efeitos": {"carisma": +1}
+            },
+            {
+                "texto": "Fazer apenas sua parte",
+                "efeitos": {"inteligencia": +1}
+            },
+            {
+                "texto": "Deixar para a última hora",
+                "efeitos": {"stresse": +2}
+            },
+        ]
+    },
             ],
-            # BUG 6: Períodos 4-8 tinham [...] (Ellipsis), causaria crash ao sortear.
-            #        Deixados como listas vazias; o jogo exibe tela de conclusão.
-            "Periodo4": [],
-            "Periodo5": [],
-            "Periodo6": [],
-            "Periodo7": [],
+            "Periodo4": [
+            {
+        "texto": (
+            "O professor pede que os alunos formem duplas para um trabalho."
+        ),
+        "opcoes": [
+            {
+                "texto": "Convidar alguém para fazer dupla",
+                "efeitos": {"carisma": +2, "stresse": -1}
+            },
+            {
+                "texto": "Esperar alguém te chamar",
+                "efeitos": {"carisma": -1, "stresse": +1}
+            },
+            {
+                "texto": "Fazer o trabalho sozinho",
+                "efeitos": {"inteligencia": +1, "stresse": +2}
+            },
+            {
+                "texto": "Pedir ajuda ao professor",
+                "efeitos": {"carisma": +1}
+            },
+        ]
+    },
+    {
+        "texto": (
+            "A cantina está lotada durante o intervalo."
+        ),
+        "opcoes": [
+            {
+                "texto": "Entrar na fila normalmente",
+                "efeitos": {"paciencia": +1}
+            },
+            {
+                "texto": "Conversar com colegas enquanto espera",
+                "efeitos": {"carisma": +1, "stresse": -1}
+            },
+            {
+                "texto": "Comprar algo rápido na máquina",
+                "efeitos": {"dinheiro": -1}
+            },
+            {
+                "texto": "Pular o lanche",
+                "efeitos": {"energia": -2}
+            },
+        ]
+    },
+            ],
+            "Periodo5": [
+                {
+        "texto": (
+            "Você percebe que esqueceu um material importante para a aula."
+        ),
+        "opcoes": [
+            {
+                "texto": "Pedir emprestado para um colega",
+                "efeitos": {"carisma": +1, "stresse": -1}
+            },
+            {
+                "texto": "Improvisar com o que tem",
+                "efeitos": {"inteligencia": +1}
+            },
+            {
+                "texto": "Sair para comprar outro",
+                "efeitos": {"dinheiro": -2, "stresse": -1}
+            },
+            {
+                "texto": "Ficar sem o material",
+                "efeitos": {"stresse": +2}
+            },
+        ]
+    },
+            ],
+            "Periodo6": [
+                 {
+        "texto": (
+            "Uma prova surpresa é anunciada pelo professor."
+        ),
+        "opcoes": [
+            {
+                "texto": "Fazer a prova com confiança",
+                "efeitos": {"inteligencia": +2}
+            },
+            {
+                "texto": "Pedir alguns minutos para revisar",
+                "efeitos": {"stresse": -1}
+            },
+            {
+                "texto": "Tentar colar",
+                "efeitos": {"inteligencia": -1, "stresse": +2}
+            },
+            {
+                "texto": "Desistir da prova",
+                "efeitos": {"stresse": +1}
+            },
+        ]
+    },
+            ],
+            "Periodo7": [
+                 {
+        "texto": (
+            "O professor faz uma pergunta difícil para a turma."
+        ),
+        "opcoes": [
+            {
+                "texto": "Levantar a mão e responder",
+                "efeitos": {"carisma": +1, "inteligencia": +2}
+            },
+            {
+                "texto": "Responder mesmo sem certeza",
+                "efeitos": {"carisma": +2}
+            },
+            {
+                "texto": "Esperar outro aluno responder",
+                "efeitos": {}
+            },
+            {
+                "texto": "Evitar contato visual",
+                "efeitos": {"carisma": -1}
+            },
+        ]
+    }
+            ],
             "Periodo8": [],
         }
 
@@ -183,8 +368,8 @@ class TelaCriacao(tk.Frame):   # BUG 7: nome era "Telacriacoa" (typo)
         ).pack(pady=20)
 
         # Nome
-        tk.Label(self, text="Seu Nome:", font=("Arial", 12)).pack()  # BUG 8: Label não tinha .pack()
-        self.entry_nome = tk.Entry(self, font=("Arial", 12), width=25)  # BUG 9: era tk.Entry(0,"Jogador") — sintaxe errada
+        tk.Label(self, text="Seu Nome:", font=("Arial", 12)).pack()  
+        self.entry_nome = tk.Entry(self, font=("Arial", 12), width=25)  
         self.entry_nome.insert(0, "Jogador")
         self.entry_nome.pack(pady=4)
 
@@ -198,11 +383,11 @@ class TelaCriacao(tk.Frame):   # BUG 7: nome era "Telacriacoa" (typo)
                 frame_sexo, text=opcao.capitalize(),
                 variable=self.var_sexo, value=opcao,
                 font=("Arial", 11)
-            ).pack(side="left", padx=10)  # BUG 10: era "pax=10" (typo)
+            ).pack(side="left", padx=10)  
 
         # Classe Social
         tk.Label(self, text="Classe Social:", font=("Arial", 12)).pack(pady=(10, 0))
-        # BUG 11: era self.classe_social (atributo inexistente na tela)
+        
         self.var_classe = tk.StringVar(value="Medio")
         frame_classe = tk.Frame(self)
         frame_classe.pack()
@@ -213,7 +398,7 @@ class TelaCriacao(tk.Frame):   # BUG 7: nome era "Telacriacoa" (typo)
                 font=("Arial", 11)
             ).pack(side="left", padx=8)
 
-        # BUG 12: exibia self.carisma/educacao/saude (inexistentes na tela)
+        
         tk.Label(
             self,
             text="Atributos iniciais sorteados ao confirmar:\nSaúde | Educação | Carisma (1–10)  |  Stress: 0",
@@ -227,14 +412,13 @@ class TelaCriacao(tk.Frame):   # BUG 7: nome era "Telacriacoa" (typo)
 
         tk.Button(
             self, text="← Voltar ao Menu", font=("Arial", 10),
-            command=lambda: master.mostrar_tela("menu")  # BUG 13: era master.mostra_tela (typo)
+            command=lambda: master.mostrar_tela("menu")  
         ).pack()
 
     def _confirmar(self):
         nome   = self.entry_nome.get().strip() or "Jogador"
         sexo   = self.var_sexo.get()
         classe = self.var_classe.get()
-        # BUG 14: _confirmar não criava o personagem nem trocava de tela
         self.master.personagem = Pessoa(nome, sexo, classe)
         self.master.mostrar_tela("introducao")
 
@@ -249,8 +433,6 @@ class TelaIntroducao(tk.Frame):
 
         tk.Label(self, text="📖 Introdução", font=("Arial", 18, "bold")).pack(pady=(20, 10))
 
-        # BUG 16: era self.Label_intro (L maiúsculo) mas pack/config usavam self.label_intro
-        #         e wraplength estava escrito "warplength", justify="lerft"
         self.label_intro = tk.Label(
             self, wraplength=440, justify="left", font=("Arial", 11)
         )
@@ -282,9 +464,9 @@ class TelaIntroducao(tk.Frame):
             f"Cada escolha que fizer vai moldar quem você se torna. "
             f"Suas habilidades serão testadas e você irá superar todas as adversidades "
             f"— ou não — dependendo do seu caminho.\n\n"
-            f"Boa sorte, calouro(a)! 🎒"
+            f"Boa sorte, calouro(a)!"
         )
-        self.label_intro.config(text=texto)   # BUG 17: era .confg() (typo)
+        self.label_intro.config(text=texto)   
         self.label_ficha.config(
             text=f"👤 {p.nome}  |  {p.sexo.capitalize()}  |  {p.classe_social}\n"
                  f"{p.resumo()}"
@@ -360,7 +542,7 @@ class TelaJogo(tk.Frame):
         self.label_texto.config(text=self.evento_atual["texto"])
         for i, btn in enumerate(self.botoes):
             opcao = self.evento_atual["opcoes"][i]
-            btn.config(text=f"  {i+1}. {opcao['texto']}", state="normal")  # BUG 18: botão recebia dict inteiro
+            btn.config(text=f"  {i+1}. {opcao['texto']}", state="normal")  
 
     def escolher(self, indice):
         opcao   = self.evento_atual["opcoes"][indice]
