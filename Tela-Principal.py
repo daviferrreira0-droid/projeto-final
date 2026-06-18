@@ -2,9 +2,9 @@ import tkinter as tk
 import random as rr
 from tkinter import messagebox
 
-# ─────────────────────────────────────────────
-# PERSONAGEM
-# ─────────────────────────────────────────────
+
+'''Personagem'''
+
 class Pessoa:
     def __init__(self, nome, sexo, classe_social):
         self.nome          = nome
@@ -13,7 +13,7 @@ class Pessoa:
         self.periodo       = 1
        
         self.saude    = rr.randint(1, 10)
-        self.educacao = rr.randint(1, 10)   
+        self.inteligencia = rr.randint(1, 10)   
         self.carisma  = rr.randint(1, 10)
         self.stresse  = 0                   
 
@@ -29,7 +29,7 @@ class Pessoa:
     def resumo(self) -> str:
         return (
             f"Sau: {self.saude}  |  "
-            f"Edu: {self.educacao}  |  "
+            f"Edu: {self.inteligencia}  |  "
             f"Car: {self.carisma}  |  "
             f"Stress: {self.stresse}"
         )
@@ -55,7 +55,7 @@ class DepositoEventos:
                         {"texto": "Fazer uma piada",
                          "efeitos": {"carisma": +1, "stresse": -1}},   
                         {"texto": "Esperar alguém falar com você",
-                         "efeitos": {"stresse": +2}},
+                         "efeitos": {"stresse": +4}},
                     ]
                 },
                 {
@@ -67,7 +67,7 @@ class DepositoEventos:
                         {"texto": "Aceitar o convite",
                          "efeitos": {"carisma": +2, "stresse": -1}},
                         {"texto": "Recusar educadamente",
-                         "efeitos": {"carisma": -1, "educacao": +1}},
+                         "efeitos": {"carisma": -1, "inteligencia": +1}},
                         {"texto": "Sentar e ficar em silêncio",
                          "efeitos": {"carisma": -2}},
                         {"texto": "Tentar liderar a conversa",
@@ -103,11 +103,11 @@ class DepositoEventos:
                     "texto": "Você puxou uma matéria com um professor horrível.",
                     "opcoes": [
                         {"texto": "Estudar como nunca",
-                         "efeitos": {"educacao": +5, "stresse": +4}},
+                         "efeitos": {"inteligencia": +5, "stresse": +4, "saude": -3}},
                         {"texto": "Viu a primeira aula e decidiu trancar",
-                         "efeitos": {"educacao": -3, "stresse": -5}},
+                         "efeitos": {"inteligencia": -3, "stresse": -5}},
                         {"texto": "Fazer um grupo de estudos",
-                         "efeitos": {"carisma": +3, "educacao": +3}},
+                         "efeitos": {"carisma": +3, "inteligencia": +3}},
                         {"texto": "Pagar alguém para fazer as provas por você",
                          "efeitos": {"stresse": -7}},
                     ]
@@ -116,7 +116,7 @@ class DepositoEventos:
                     "texto": "Um trabalho em grupo é dado por um professor.",
                     "opcoes": [
                         {"texto": "Escolher bem as pessoas para pegar os melhores",
-                         "efeitos": {"educacao": +2, "stresse": -1}},
+                         "efeitos": {"inteligencia": +2, "stresse": -1}},
                         {"texto": "Entrar no grupo que sobrar",
                          "efeitos": {"carisma": -1, "stresse": +1}},
                         {"texto": "Ir no grupinho de sempre",
@@ -132,7 +132,7 @@ class DepositoEventos:
         "opcoes": [
             {
                 "texto": "Ir à festa e conhecer pessoas",
-                "efeitos": {"carisma": +2, "esaude": -3}
+                "efeitos": {"carisma": +2, "saude": -3}
             },
             {
                 "texto": "Ir apenas por algumas horas",
@@ -140,11 +140,11 @@ class DepositoEventos:
             },
             {
                 "texto": "Ficar em casa estudando",
-                "efeitos": {"inteligencia": +2, "stresse": +1}
+                "efeitos": {"inteligencia": +2, "stresse": +1,"saude": +3}
             },
             {
                 "texto": "Ignorar o convite",
-                "efeitos": {"carisma": -1}
+                "efeitos": {"carisma": -1, "saude": +2}
             },
         ]
     },
@@ -157,11 +157,11 @@ class DepositoEventos:
                     ),
                     "opcoes": [
                         {"texto": "Aceitar mesmo tendo que atrasar matérias",
-                         "efeitos": {"educacao": +3, "stresse": +2}},
+                         "efeitos": {"educacao": +3, "stresse": +2, "saude": -4}},
                         {"texto": "Aceitar mas negociar tempo para não atrasar",
-                         "efeitos": {"educacao": +1, "stresse": +4, "carisma": +1}},
+                         "efeitos": {"educacao": +1, "stresse": +4, "saude": +1}},
                         {"texto": "Recusar educadamente",
-                         "efeitos": {"stresse": -2, "educacao": -2}},
+                         "efeitos": {"stresse": -2, "inteligencia": -2}},
                         {"texto": "Ignorar o e-mail",
                          "efeitos": {"carisma": -2, "stresse": -1}},
                     ]
@@ -221,7 +221,7 @@ class DepositoEventos:
         "opcoes": [
             {
                 "texto": "Entrar na fila normalmente",
-                "efeitos": {"paciencia": +1}
+                "efeitos": {"stresse": +1}
             },
             {
                 "texto": "Conversar com colegas enquanto espera",
@@ -233,7 +233,7 @@ class DepositoEventos:
             },
             {
                 "texto": "Pular o lanche",
-                "efeitos": {"energia": -2}
+                "efeitos": {"saude": -2}
             },
         ]
     },
@@ -316,10 +316,7 @@ class DepositoEventos:
             "Periodo8": [],
         }
 
-
-# ─────────────────────────────────────────────
-# GERENCIADOR DE EVENTOS
-# ─────────────────────────────────────────────
+'''Gerenciador de Eventos'''
 class GerenciarEventos(DepositoEventos):
     def __init__(self):
         super().__init__()
