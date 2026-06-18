@@ -238,88 +238,11 @@ class DepositoEventos:
         ]
     },
             ],
-            "Periodo5": [
-                {
-        "texto": (
-            "Você percebe que esqueceu um material importante para a aula."
-        ),
-        "opcoes": [
-            {
-                "texto": "Pedir emprestado para um colega",
-                "efeitos": {"carisma": +1, "stresse": -1}
-            },
-            {
-                "texto": "Improvisar com o que tem",
-                "efeitos": {"inteligencia": +1}
-            },
-            {
-                "texto": "Sair para comprar outro",
-                "efeitos": {"dinheiro": -2, "stresse": -1}
-            },
-            {
-                "texto": "Ficar sem o material",
-                "efeitos": {"stresse": +2}
-            },
-        ]
-    },
-            ],
-            "Periodo6": [
-                 {
-        "texto": (
-            "Uma prova surpresa é anunciada pelo professor."
-        ),
-        "opcoes": [
-            {
-                "texto": "Fazer a prova com confiança",
-                "efeitos": {"inteligencia": +2}
-            },
-            {
-                "texto": "Pedir alguns minutos para revisar",
-                "efeitos": {"stresse": -1}
-            },
-            {
-                "texto": "Tentar colar",
-                "efeitos": {"inteligencia": -1, "stresse": +2}
-            },
-            {
-                "texto": "Desistir da prova",
-                "efeitos": {"stresse": +1}
-            },
-        ]
-    },
-            ],
-            "Periodo7": [
-                 {
-        "texto": (
-            "O professor faz uma pergunta difícil para a turma."
-        ),
-        "opcoes": [
-            {
-                "texto": "Levantar a mão e responder",
-                "efeitos": {"carisma": +1, "inteligencia": +2}
-            },
-            {
-                "texto": "Responder mesmo sem certeza",
-                "efeitos": {"carisma": +2}
-            },
-            {
-                "texto": "Esperar outro aluno responder",
-                "efeitos": {}
-            },
-            {
-                "texto": "Evitar contato visual",
-                "efeitos": {"carisma": -1}
-            },
-        ]
-    }
-            ],
-            "Periodo8": [],
+            "Periodo2": [...],
+            "Periodo3": [...],
         }
 
-
-# ─────────────────────────────────────────────
-# GERENCIADOR DE EVENTOS
-# ─────────────────────────────────────────────
+'''Gerenciador de Eventos'''
 class GerenciarEventos(DepositoEventos):
     def __init__(self):
         super().__init__()
@@ -338,11 +261,7 @@ class GerenciarEventos(DepositoEventos):
 class Menu(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
-        tk.Label(
-            self, text="🎓 Jogo da Faculdade",
-            font=("Arial", 20, "bold")
-        ).pack(pady=30)
-
+        tk.Label(self, text="🎓 Jogo da Faculdade", font=("Arial", 18, "bold")).pack(pady=30)
         tk.Button(
             self, text="Iniciar",
             command=lambda: master.mostrar_tela("criacao")
