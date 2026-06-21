@@ -126,7 +126,7 @@ class DepositoEventos:
                          "efeitos": {"inteligencia": +2, "stresse": +1, "saude": +3}},
                         # ★ Exclusivo Rico
                         {"texto": "Organizar uma festa no seu apartamento",
-                         "efeitos": {"carisma": +4, "saude": -2, "stresse": -1},
+                         "efeitos": {"carisma": +6, "saude": -4, "stresse": -5},
                          "restrito_a": ["Rico"]},
                     ]
                 },
@@ -141,26 +141,26 @@ class DepositoEventos:
                     ),
                     "opcoes": [
                         {"texto": "Aceitar mesmo tendo que atrasar matérias",
-                         "efeitos": {"inteligencia": +3, "stresse": +2, "saude": -4}},
+                         "efeitos": {"inteligencia": +3, "stresse": +3, "saude": -4}},
                         {"texto": "Aceitar mas negociar tempo para não atrasar",
                          "efeitos": {"inteligencia": +1, "stresse": +4, "saude": +1}},
                         {"texto": "Recusar educadamente",
                          "efeitos": {"stresse": -2, "inteligencia": -2}},
                         {"texto": "Ignorar o e-mail",
-                         "efeitos": {"carisma": -2, "stresse": -1}},
+                         "efeitos": {"carisma": -2, "stresse": -2}},
                     ]
                 },
                 {
                     "texto": "Seu grupo ainda não começou o trabalho e o prazo está perto.",
                     "opcoes": [
                         {"texto": "Assumir a liderança",
-                         "efeitos": {"carisma": +2, "stresse": +1}},
+                         "efeitos": {"carisma": +2, "stresse": +5}},
                         {"texto": "Organizar uma reunião",
-                         "efeitos": {"carisma": +1}},
+                         "efeitos": {"carisma": +5}},
                         {"texto": "Fazer apenas sua parte",
-                         "efeitos": {"inteligencia": +1}},
+                         "efeitos": {"inteligencia": +5}},
                         {"texto": "Deixar para a última hora",
-                         "efeitos": {"stresse": +2}},
+                         "efeitos": {"stresse": +5}},
                     ]
                 },
             ],
@@ -171,11 +171,11 @@ class DepositoEventos:
                     "texto": "O professor pede que os alunos formem duplas para um trabalho.",
                     "opcoes": [
                         {"texto": "Convidar alguém para fazer dupla",
-                         "efeitos": {"carisma": +2, "stresse": -1}},
+                         "efeitos": {"carisma": +2, "stresse": -2}},
                         {"texto": "Esperar alguém te chamar",
-                         "efeitos": {"carisma": -1, "stresse": +1}},
+                         "efeitos": {"carisma": -1, "stresse": +3}},
                         {"texto": "Fazer o trabalho sozinho",
-                         "efeitos": {"inteligencia": +1, "stresse": +2}},
+                         "efeitos": {"inteligencia": +1, "stresse": +4}},
                         {"texto": "Pedir ajuda ao professor",
                          "efeitos": {"carisma": +1}},
                     ]
@@ -186,12 +186,12 @@ class DepositoEventos:
                         {"texto": "Entrar na fila normalmente",
                          "efeitos": {"stresse": +1}},
                         {"texto": "Conversar com colegas enquanto espera",
-                         "efeitos": {"carisma": +1, "stresse": -1}},
+                         "efeitos": {"carisma": +1, "stresse": -3}},
                         {"texto": "Pular o lanche",
-                         "efeitos": {"saude": -2}},
+                         "efeitos": {"saude": -6}},
                         # ★ Exclusivo Rico / Medio
                         {"texto": "Pedir delivery para comer na sala",
-                         "efeitos": {"saude": +2, "stresse": -1},
+                         "efeitos": {"saude": +2, "stresse": -2},
                          "restrito_a": ["Rico", "Medio"]},
                     ]
                 },
@@ -207,7 +207,7 @@ class DepositoEventos:
                         {"texto": "Recusar para focar nos estudos",
                          "efeitos": {"inteligencia": +3, "stresse": -1}},
                         {"texto": "Aceitar e reduzir matérias",
-                         "efeitos": {"carisma": +2, "inteligencia": -1}},
+                         "efeitos": {"carisma": +5, "inteligencia": -4}},
                         # ★ Exclusivo Rico
                         {"texto": "Recusar — família já garante seu futuro",
                          "efeitos": {"stresse": -5, "carisma": -1},
@@ -236,7 +236,7 @@ class DepositoEventos:
                     "opcoes": [
                         # ★ Exclusivo Rico / Medio
                         {"texto": "Se inscrever no intercâmbio",
-                         "efeitos": {"inteligencia": +4, "carisma": +2, "stresse": +2},
+                         "efeitos": {"inteligencia": +4, "carisma": +4, "stresse": +4},
                          "restrito_a": ["Rico", "Medio"]},
                         {"texto": "Tentar uma bolsa para o intercâmbio",
                          "efeitos": {"inteligencia": +2, "stresse": +3}},
@@ -250,13 +250,13 @@ class DepositoEventos:
                     "texto": "Você está sobrecarregado com provas e trabalhos.",
                     "opcoes": [
                         {"texto": "Enfrentar tudo de cabeça erguida",
-                         "efeitos": {"inteligencia": +2, "stresse": +3, "saude": -2}},
+                         "efeitos": {"inteligencia": +3, "stresse": +5, "saude": -4}},
                         {"texto": "Pedir extensão de prazo ao professor",
-                         "efeitos": {"stresse": -2, "carisma": +1}},
+                         "efeitos": {"stresse": -4, "carisma": +1}},
                         {"texto": "Tirar um dia de descanso",
-                         "efeitos": {"saude": +3, "stresse": -3, "inteligencia": -1}},
+                         "efeitos": {"saude": +1, "stresse": -3, "inteligencia": -2}},
                         {"texto": "Trancar uma matéria",
-                         "efeitos": {"stresse": -4, "inteligencia": -2}},
+                         "efeitos": {"stresse": -3, "inteligencia": -5}},
                     ]
                 },
             ],
@@ -267,26 +267,26 @@ class DepositoEventos:
                     "texto": "Você precisa escolher o tema do TCC.",
                     "opcoes": [
                         {"texto": "Tema inovador e desafiador",
-                         "efeitos": {"inteligencia": +3, "stresse": +3}},
+                         "efeitos": {"inteligencia": +5, "stresse": +6}},
                         {"texto": "Tema seguro mas bem documentado",
-                         "efeitos": {"inteligencia": +2, "stresse": +1}},
+                         "efeitos": {"inteligencia": +2, "stresse": +3}},
                         {"texto": "Tema sugerido pelo orientador",
                          "efeitos": {"carisma": +1, "stresse": -1}},
                         {"texto": "Copiar a estrutura de um TCC antigo",
-                         "efeitos": {"stresse": -2, "inteligencia": -2, "saude": +1}},
+                         "efeitos": {"stresse": -4, "inteligencia": -4, "saude": +4}},
                     ]
                 },
                 {
                     "texto": "Seu orientador cancela a reunião de orientação pela terceira vez.",
                     "opcoes": [
                         {"texto": "Mandar e-mail firme cobrando resposta",
-                         "efeitos": {"carisma": -1, "stresse": -2}},
+                         "efeitos": {"carisma": -3, "stresse": -2}},
                         {"texto": "Procurar outro orientador",
-                         "efeitos": {"carisma": +1, "stresse": +2}},
+                         "efeitos": {"carisma": +1, "stresse": +3}},
                         {"texto": "Continuar esperando pacientemente",
-                         "efeitos": {"stresse": +3}},
+                         "efeitos": {"stresse": +5}},
                         {"texto": "Trabalhar sozinho enquanto isso",
-                         "efeitos": {"inteligencia": +2, "stresse": +1}},
+                         "efeitos": {"inteligencia": +2, "stresse": +3}},
                     ]
                 },
             ],
@@ -304,7 +304,7 @@ class DepositoEventos:
                         {"texto": "Focar nos dados e argumentos técnicos",
                          "efeitos": {"inteligencia": +2, "stresse": -1}},
                         {"texto": "Improvisar — você conhece o assunto",
-                         "efeitos": {"carisma": +1, "stresse": +2}},
+                         "efeitos": {"carisma": +1, "stresse": +4}},
                         {"texto": "Ler direto dos slides",
                          "efeitos": {"carisma": -2, "stresse": -3}},
                     ]
